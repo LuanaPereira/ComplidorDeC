@@ -1,16 +1,19 @@
 grammar GramaticaC;
+@header { package compiladordec.parser;}
+
 inicio:     (include)?
             |(funcaoExp)?
             |(varGlobal)?
             |funcaomain
             ;
-include:    (INCLUDE LS STR GR)+
+
+include:    (INCLUDE LS STR GR)*
             ;
 
 funcaoExp:  (tipo STR OEX tipo var (SEP tipo var)+ CEX bloco)+
             ;
 
-varGlobal:  OBL (declarar)+ CBL
+varGlobal:  OBL (declarar)+ CBL;
 
 funcaomain: INT MAIN OEX CEX OBL programa RETURN '0' EOL CBL
             ;
@@ -124,7 +127,7 @@ LINE_COMMENT: '//' ~[\r\n]* -> skip;
 WS          : [ \t\r\n]+ -> skip;
 VARINT      : ([+-]?[0-9])?;
 VARFLOAT    : [+-]?[0-9]+('.'[0-9]+)?;
-VARDOUBLE   : ^(-)?(([1-9][0-9]*))(\\.[0-9]+)?;
+VARDOUBLE   :' ^(-)?(([1-9][0-9]*))(\\.[0-9]+)?';
 VARCHAR     : [a-zA-Z]{1,1} ;
 INT         :'int';
 FLOAT       :'float';
@@ -132,4 +135,4 @@ DOUBLE      :'double';
 CHAR        :'char';
 INCLUDE     :'#include';
 MAIN        :'main';
-RETURN      :'return'
+RETURN      :'return';
