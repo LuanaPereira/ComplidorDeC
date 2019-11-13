@@ -1,1 +1,16 @@
-#include "stdio.h"
+#include"stdio.h"
+
+global {
+    int x;
+    float c;
+}
+
+function int soma(int x, int y){
+    read (z);
+    print (y);
+}
+
+int main(){
+    print (12 + 10);
+    soma(x,y);
+}

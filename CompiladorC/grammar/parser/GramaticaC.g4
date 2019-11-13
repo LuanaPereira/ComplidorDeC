@@ -3,8 +3,8 @@ grammar GramaticaC;
 @header { package compiladorc.parser;}
 
 programa:   includes?
-            |globais?
-            |functions?
+            globais?
+            functions?
             main
             ;
 includes:   (INCLUDE STR)+
@@ -15,25 +15,29 @@ vars:       (type ids EOL)+
             ;
 functions:  function+
             ;
-function:   FUNCTION ID OPP ((type ID SEP)* type ID)? CLP block
+function:   FUNCTION type ID OPP ((type ID SEP)* type ID)? CLP block
             ;
-main:       MAIN ID OPP ((type ID SEP)* type ID)? CLP block
+main:       INT MAIN OPP CLP block
             ;
-block:      OPC line CLP
+block:      OPC line+ CLC
             ;
 line:         read          #lineRead
             | write         #lineWrite
             | atr           #lineAtr
             | ifstm         #lineIfStm
-            | whileLoop     #lineWhileLoop
-            | forLoop       #lineForLoop
+            |func           #linefunc
+           // | whileLoop     #lineWhileLoop
+           // | forLoop       #lineForLoop
             ;
-whileLoop:  ;
-forLoop:    ;
-read:       READ ID
+func:       ID OPP ((ID SEP)* ID)? CLP EOL
             ;
-write:        WRITE STR     #writeStr
-            | WRITE expr    #writeExpr
+//whileLoop:  ;
+//forLoop:    ;
+
+read:       READ OPP ID CLP EOL
+            ;
+write:        WRITE OPP STR CLP EOL    #writeStr
+            | WRITE OPP expr CLP EOL   #writeExpr
             ;
 atr:        ID ATR expr
             ;
@@ -42,10 +46,12 @@ ifstm:        IF OPP boolExpr CLP block
             ;
 expr:         term ADD expr
             | term SUB expr
+            | term
             ;
 term:         fact MUL term
             | fact DIV term
             | fact MOD term
+            | fact
             ;
 fact:         ID
             | NUM
@@ -82,7 +88,7 @@ INCLUDE     :'#include';
 TRUE        :'true';
 FALSE       :'false';
 READ        :'read';
-WRITE       :'write';
+WRITE       :'print';
 IF          :'if';
 ELSE        :'else';
 GLOBAIS     :'global';

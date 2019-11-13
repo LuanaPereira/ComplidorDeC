@@ -47,7 +47,7 @@ public class CompiladorC {
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(
                 parser.getRuleNames()), tree);
-        viewr.setScale(3);
+        viewr.setScale(1);
         panel.add(viewr);
         frame.add(panel);
         frame.setSize(1000, 600);
