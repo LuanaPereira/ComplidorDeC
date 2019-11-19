@@ -26,6 +26,7 @@ line:         read          #lineRead
             | atr           #lineAtr
             | ifstm         #lineIfStm
             |func           #linefunc
+            |vars           #linevars
            // | whileLoop     #lineWhileLoop
            // | forLoop       #lineForLoop
             ;
@@ -39,7 +40,7 @@ read:       READ OPP ID CLP EOL
 write:        WRITE OPP STR CLP EOL    #writeStr
             | WRITE OPP expr CLP EOL   #writeExpr
             ;
-atr:        ID ATR expr
+atr:        ID ATR expr EOL
             ;
 ifstm:        IF OPP boolExpr CLP block
             | IF OPP boolExpr CLP block ELSE block

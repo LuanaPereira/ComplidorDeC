@@ -1,4 +1,5 @@
 compiladorc.parser.GramaticaCParser$ProgramaContext
+compiladorc.parser.GramaticaCParser$LinevarsContext
 compiladorc.parser.GramaticaCParser$IdsContext
 compiladorc.parser.GramaticaCParser$BlockContext
 compiladorc.parser.GramaticaCParser$GlobaisContext
