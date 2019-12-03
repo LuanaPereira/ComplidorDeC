@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mayla/NetBeansProjects/CompiladorC/src/compiladorc/MyGramaticaCListener.java</file>
-            <file>file:/home/mayla/NetBeansProjects/CompiladorC/nbproject/build-antlr4-impl.xml</file>
-            <file>file:/home/mayla/NetBeansProjects/CompiladorC/grammar/parser/GramaticaC.g4</file>
-            <file>file:/home/mayla/NetBeansProjects/CompiladorC/src/compiladorc/CompiladorC.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/src/compiladorc/SymbolsTable.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/src/compiladorc/MyGramaticaCVisitor.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/build/generated-sources/antlr4/parser/GramaticaCVisitor.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/grammar/parser/GramaticaC.g4</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/TesteMedia.txt</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/src/compiladorc/MyGramaticaCListener.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/src/compiladorc/CompiladorC.java</file>
+            <file>file:/C:/Users/Luci/Downloads/ComplidorDeC-master/CompiladorC/build/generated-sources/antlr4/parser/GramaticaCParser.java</file>
         </group>
     </open-files>
 </project-private>

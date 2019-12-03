@@ -1,4 +1,4 @@
-// Generated from /home/mayla/NetBeansProjects/CompiladorC/grammar/parser/GramaticaC.g4 by ANTLR 4.6
+// Generated from C:\Users\bruno\Desktop\CompiladorC\grammar\parser\GramaticaC.g4 by ANTLR 4.6
  package compiladorc.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -47,18 +47,6 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGlobais(GramaticaCParser.GlobaisContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVars(GramaticaCParser.VarsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVars(GramaticaCParser.VarsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -184,6 +172,30 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVar(GramaticaCParser.VarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVar(GramaticaCParser.VarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFunc(GramaticaCParser.FuncContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -191,6 +203,18 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunc(GramaticaCParser.FuncContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhile(GramaticaCParser.WhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhile(GramaticaCParser.WhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -220,6 +244,18 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterWriteID(GramaticaCParser.WriteIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWriteID(GramaticaCParser.WriteIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterWriteExpr(GramaticaCParser.WriteExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -227,6 +263,30 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitWriteExpr(GramaticaCParser.WriteExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfSemElse(GramaticaCParser.IfSemElseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfSemElse(GramaticaCParser.IfSemElseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfComElse(GramaticaCParser.IfComElseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfComElse(GramaticaCParser.IfComElseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -244,49 +304,121 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfstm(GramaticaCParser.IfstmContext ctx) { }
+	@Override public void enterExprAdd(GramaticaCParser.ExprAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfstm(GramaticaCParser.IfstmContext ctx) { }
+	@Override public void exitExprAdd(GramaticaCParser.ExprAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr(GramaticaCParser.ExprContext ctx) { }
+	@Override public void enterExprSub(GramaticaCParser.ExprSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpr(GramaticaCParser.ExprContext ctx) { }
+	@Override public void exitExprSub(GramaticaCParser.ExprSubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTerm(GramaticaCParser.TermContext ctx) { }
+	@Override public void enterExprTerm(GramaticaCParser.ExprTermContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTerm(GramaticaCParser.TermContext ctx) { }
+	@Override public void exitExprTerm(GramaticaCParser.ExprTermContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFact(GramaticaCParser.FactContext ctx) { }
+	@Override public void enterTermMul(GramaticaCParser.TermMulContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFact(GramaticaCParser.FactContext ctx) { }
+	@Override public void exitTermMul(GramaticaCParser.TermMulContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTermDiv(GramaticaCParser.TermDivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTermDiv(GramaticaCParser.TermDivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTermMod(GramaticaCParser.TermModContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTermMod(GramaticaCParser.TermModContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTermFact(GramaticaCParser.TermFactContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTermFact(GramaticaCParser.TermFactContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFactId(GramaticaCParser.FactIdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFactId(GramaticaCParser.FactIdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFactNum(GramaticaCParser.FactNumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFactNum(GramaticaCParser.FactNumContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFactExpr(GramaticaCParser.FactExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFactExpr(GramaticaCParser.FactExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -316,13 +448,61 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType(GramaticaCParser.TypeContext ctx) { }
+	@Override public void enterTypeInt(GramaticaCParser.TypeIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType(GramaticaCParser.TypeContext ctx) { }
+	@Override public void exitTypeInt(GramaticaCParser.TypeIntContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeFloat(GramaticaCParser.TypeFloatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeFloat(GramaticaCParser.TypeFloatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeDouble(GramaticaCParser.TypeDoubleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeDouble(GramaticaCParser.TypeDoubleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeChar(GramaticaCParser.TypeCharContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeChar(GramaticaCParser.TypeCharContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeBool(GramaticaCParser.TypeBoolContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeBool(GramaticaCParser.TypeBoolContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

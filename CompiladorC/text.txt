@@ -1,0 +1,15 @@
+int main(){
+    print("Luana");
+    int bruno;
+    int x;
+    print(2 * 3);
+    read(x);
+    print(x);
+    bruno = 10;
+    print(bruno);
+    if (10!=10){
+        print("bloco if");
+    } else {
+        print("bloco else");
+    }
+}

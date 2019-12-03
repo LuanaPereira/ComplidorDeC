@@ -5,13 +5,11 @@
  */
 package compiladorc;
 
-
 import java.awt.HeadlessException;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.BufferedTokenStream;
 import org.antlr.v4.runtime.CharStream;
@@ -20,9 +18,13 @@ import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import compiladorc.parser.GramaticaCLexer;
 import compiladorc.parser.GramaticaCParser;
+import compiladorc.parser.GramaticaCVisitor;
+import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 /**
  *
  * @author mayla
@@ -42,27 +44,23 @@ public class CompiladorC {
         showParseTreeFrame(lang,parser);
         return parser.programa();
     } */
-    
     public static void main(String[] args) throws Exception {
-        
-        CharStream input = new ANTLRFileStream("TesteMédia");
+        CharStream input = new ANTLRFileStream("text.txt");
         GramaticaCLexer lexer = new GramaticaCLexer(input);
         TokenStream tokens = new BufferedTokenStream(lexer);
         GramaticaCParser parser = new GramaticaCParser(tokens);
-        parser.addParseListener(new MyGramaticaCListener());
         GramaticaCParser.ProgramaContext lang = parser.programa();
-        showParseTreeFrame(lang,parser);
-        
-       /* ParseTree tree = parser(input); 
-        ParseTreeWalker walker = new ParseTreeWalker();        
-        CompiladorC listener = new CompiladorC();
-        walker.walk((ParseTreeListener) listener, tree);
-        int resultado = listener.resultado();
-//GramaticaCListener listener = new GramaticaCBaseListener();*/
-        
+        parser.addParseListener(new MyGramaticaCListener());
+        GramaticaCVisitor eval = new MyGramaticaCVisitor();
+        //showParseTreeFrame(lang, parser);
+
+        eval.visit(lang);
+    
+
+
     }
 
-      private static void showParseTreeFrame(ParseTree tree, GramaticaCParser parser) throws HeadlessException {
+    private static void showParseTreeFrame(ParseTree tree, GramaticaCParser parser) throws HeadlessException {
         JFrame frame = new JFrame("SRC: " + tree.getText());
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(

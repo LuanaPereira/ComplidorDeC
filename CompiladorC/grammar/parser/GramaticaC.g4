@@ -11,8 +11,6 @@ includes:   (INCLUDE STR)+
             ;
 globais:    GLOBAIS OPC vars CLC
             ;
-vars:       (type ids EOL)+
-            ;
 functions:  function+
             ;
 function:   FUNCTION type ID OPP ((type ID SEP)* type ID)? CLP block
@@ -25,38 +23,44 @@ line:         read          #lineRead
             | write         #lineWrite
             | atr           #lineAtr
             | ifstm         #lineIfStm
-            |func           #linefunc
-            |vars           #linevars
-           // | whileLoop     #lineWhileLoop
-           // | forLoop       #lineForLoop
+            | func          #linefunc
+            | vars          #linevars
+            | whileLoop     #lineWhileLoop
+            //| forLoop       #lineForLoop
+            ;
+
+vars:       type ids EOL     #var
             ;
 func:       ID OPP ((ID SEP)* ID)? CLP EOL
             ;
-//whileLoop:  ;
+whileLoop:  WHILE OPP boolExpr CLP block            #while
+            ;
 //forLoop:    ;
 
 read:       READ OPP ID CLP EOL
             ;
 write:        WRITE OPP STR CLP EOL    #writeStr
-            | WRITE OPP expr CLP EOL   #writeExpr
+            | WRITE OPP ID CLP EOL     #writeID
+            | WRITE OPP expr CLP EOL   #writeExpr  
+            ;
+
+ifstm:        IF OPP boolExpr CLP block                 #ifSemElse
+            | IF OPP boolExpr CLP block ELSE block      #ifComElse
             ;
 atr:        ID ATR expr EOL
             ;
-ifstm:        IF OPP boolExpr CLP block
-            | IF OPP boolExpr CLP block ELSE block
+expr:         term ADD expr         #exprAdd
+            | term SUB expr         #exprSub
+            | term                  #exprTerm
             ;
-expr:         term ADD expr
-            | term SUB expr
-            | term
+term:         fact MUL term         #termMul
+            | fact DIV term         #termDiv
+            | fact MOD term         #termMod
+            | fact                  #termFact
             ;
-term:         fact MUL term
-            | fact DIV term
-            | fact MOD term
-            | fact
-            ;
-fact:         ID
-            | NUM
-            | OPP expr CLP
+fact:         ID                    #factId
+            | NUM                   #factNum
+            | OPP expr CLP          #factExpr
             ;
 boolExpr:     fact
             | NOT boolExpr
@@ -71,15 +75,17 @@ relop:        GR
             | LST
             | NEQ
             ;
-type:       INT
-            | FLOAT
-            | DOUBLE
-            | CHAR
-            | BOOL;
+type:       INT                 #typeInt
+            | FLOAT             #typeFloat
+            | DOUBLE            #typeDouble
+            | CHAR              #typeChar
+            | BOOL              #typeBool
+            ;
 ids:        ID
             ;
 
 //tokens
+
 INT         :'int';
 FLOAT       :'float';
 DOUBLE      :'double';
@@ -101,6 +107,7 @@ CLP         :')';
 SEP         :',';
 FUNCTION    :'function';
 MAIN        :'main';
+WHILE       :'while';
 ATR         :'=';
 NOT         :'!'|'NOT';
 ADD         :'+';

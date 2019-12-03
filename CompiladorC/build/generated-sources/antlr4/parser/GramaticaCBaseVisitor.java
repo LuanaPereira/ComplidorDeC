@@ -1,4 +1,4 @@
-// Generated from /home/mayla/NetBeansProjects/CompiladorC/grammar/parser/GramaticaC.g4 by ANTLR 4.6
+// Generated from C:\Users\bruno\Desktop\CompiladorC\grammar\parser\GramaticaC.g4 by ANTLR 4.6
  package compiladorc.parser;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -32,13 +32,6 @@ public class GramaticaCBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitGlobais(GramaticaCParser.GlobaisContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitVars(GramaticaCParser.VarsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -115,7 +108,28 @@ public class GramaticaCBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitVar(GramaticaCParser.VarContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitFunc(GramaticaCParser.FuncContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitWhile(GramaticaCParser.WhileContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -136,7 +150,28 @@ public class GramaticaCBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitWriteID(GramaticaCParser.WriteIDContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitWriteExpr(GramaticaCParser.WriteExprContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIfSemElse(GramaticaCParser.IfSemElseContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIfComElse(GramaticaCParser.IfComElseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -150,28 +185,70 @@ public class GramaticaCBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIfstm(GramaticaCParser.IfstmContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExprAdd(GramaticaCParser.ExprAddContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpr(GramaticaCParser.ExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExprSub(GramaticaCParser.ExprSubContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTerm(GramaticaCParser.TermContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExprTerm(GramaticaCParser.ExprTermContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFact(GramaticaCParser.FactContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTermMul(GramaticaCParser.TermMulContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTermDiv(GramaticaCParser.TermDivContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTermMod(GramaticaCParser.TermModContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTermFact(GramaticaCParser.TermFactContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFactId(GramaticaCParser.FactIdContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFactNum(GramaticaCParser.FactNumContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFactExpr(GramaticaCParser.FactExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -192,7 +269,35 @@ public class GramaticaCBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitType(GramaticaCParser.TypeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeInt(GramaticaCParser.TypeIntContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTypeFloat(GramaticaCParser.TypeFloatContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTypeDouble(GramaticaCParser.TypeDoubleContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTypeChar(GramaticaCParser.TypeCharContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTypeBool(GramaticaCParser.TypeBoolContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
