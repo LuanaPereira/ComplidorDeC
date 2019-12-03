@@ -30,15 +30,9 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
         //@Override public T visitPrograma(GramaticaCParser.ProgramaContext ctx) { return visitChildren(ctx); }
 	//@Override public T visitIncludes(GramaticaCParser.IncludesContext ctx) { return visitChildren(ctx); }
 	//@Override public T visitGlobais(GramaticaCParser.GlobaisContext ctx) { return visitChildren(ctx); }
-    @Override
-    public Object visitWhile(GramaticaCParser.WhileContext ctx) {
-        return visitChildren(ctx);
-    }
-
-    @Override
-    public Object visitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) {
-        return visitChildren(ctx);
-    }
+   
+   
+	
 
     @Override
     public Object visitLinefunc(GramaticaCParser.LinefuncContext ctx) {
@@ -173,7 +167,8 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
 
     @Override
     public Object visitFactId(GramaticaCParser.FactIdContext ctx) {
-        return SymbolsTable.getInstance().getSymbol(ctx.ID().getText());
+        Object[] aux = SymbolsTable.getInstance().getSymbol(ctx.ID().getText());
+        return aux[1];
 
     }
 
@@ -327,6 +322,38 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
         } else {
             visit(ctx.block(1));
         }
+        return 0;
+    }
+      @Override
+    public Object visitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) {
+      visitWhile((GramaticaCParser.WhileContext) ctx.whileLoop());  
+       return 0;
+    }
+    @Override
+    public Object visitWhile(GramaticaCParser.WhileContext ctx) {
+        Boolean condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
+        
+        while(condicao){
+            visitBlock(ctx.block());
+            condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
+        }
+        return 0;
+    }
+    @Override
+    public Object visitLineForLoop(GramaticaCParser.LineForLoopContext ctx) {
+        return visitForLoop(ctx.forLoop());
+    }
+
+    @Override
+    public Object visitForLoop(GramaticaCParser.ForLoopContext ctx) {
+        visitAtr(ctx.atr(0));
+        Boolean condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
+        for (; condicao; visitAtr(ctx.atr(1))){
+            visitBlock(ctx.block());
+            condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
+        
+        }
+        
         return 0;
     }
 }
