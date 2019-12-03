@@ -26,7 +26,7 @@ line:         read          #lineRead
             | func          #linefunc
             | vars          #linevars
             | whileLoop     #lineWhileLoop
-            //| forLoop       #lineForLoop
+            | forLoop       #lineForLoop
             ;
 
 vars:       type ids EOL     #var
@@ -35,8 +35,8 @@ func:       ID OPP ((ID SEP)* ID)? CLP EOL
             ;
 whileLoop:  WHILE OPP boolExpr CLP block            #while
             ;
-//forLoop:    ;
-
+forLoop:    FOR OPP atr boolExpr EOL atr CLP block
+            ;
 read:       READ OPP ID CLP EOL
             ;
 write:        WRITE OPP STR CLP EOL    #writeStr
@@ -108,6 +108,7 @@ SEP         :',';
 FUNCTION    :'function';
 MAIN        :'main';
 WHILE       :'while';
+FOR         :'for';
 ATR         :'=';
 NOT         :'!'|'NOT';
 ADD         :'+';

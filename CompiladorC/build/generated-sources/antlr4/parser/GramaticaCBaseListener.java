@@ -184,6 +184,18 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLineForLoop(GramaticaCParser.LineForLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLineForLoop(GramaticaCParser.LineForLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVar(GramaticaCParser.VarContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,6 +227,18 @@ public class GramaticaCBaseListener implements GramaticaCListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitWhile(GramaticaCParser.WhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForLoop(GramaticaCParser.ForLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForLoop(GramaticaCParser.ForLoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

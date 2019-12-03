@@ -162,6 +162,18 @@ public interface GramaticaCListener extends ParseTreeListener {
 	 */
 	void exitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code lineForLoop}
+	 * labeled alternative in {@link GramaticaCParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterLineForLoop(GramaticaCParser.LineForLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code lineForLoop}
+	 * labeled alternative in {@link GramaticaCParser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitLineForLoop(GramaticaCParser.LineForLoopContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code var}
 	 * labeled alternative in {@link GramaticaCParser#vars}.
 	 * @param ctx the parse tree
@@ -195,6 +207,16 @@ public interface GramaticaCListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitWhile(GramaticaCParser.WhileContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GramaticaCParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void enterForLoop(GramaticaCParser.ForLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GramaticaCParser#forLoop}.
+	 * @param ctx the parse tree
+	 */
+	void exitForLoop(GramaticaCParser.ForLoopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GramaticaCParser#read}.
 	 * @param ctx the parse tree

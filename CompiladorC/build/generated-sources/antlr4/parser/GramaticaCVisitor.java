@@ -102,6 +102,13 @@ public interface GramaticaCVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code lineForLoop}
+	 * labeled alternative in {@link GramaticaCParser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineForLoop(GramaticaCParser.LineForLoopContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code var}
 	 * labeled alternative in {@link GramaticaCParser#vars}.
 	 * @param ctx the parse tree
@@ -121,6 +128,12 @@ public interface GramaticaCVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitWhile(GramaticaCParser.WhileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GramaticaCParser#forLoop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForLoop(GramaticaCParser.ForLoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GramaticaCParser#read}.
 	 * @param ctx the parse tree
