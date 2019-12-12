@@ -1,4 +1,12 @@
-
-print("LUANA");
-
-
+int main(){
+	int x;
+	int y;
+	int z;
+	int soma;
+	scanf(x);
+	scanf(y);
+	scanf(z);
+	soma = (x + y + z) / 3;
+	print(soma);
+	
+}

@@ -1,23 +1,34 @@
+#include "stdio.h"
+global {
+    float b;
+}
 int main(){
-    print("Luana");
-    int bruno;
     int x;
-    print(2 * 3);
+    int y;
+    int z;
+    int w;
+    int soma;
+    double batata;
+    char c;
+
+    c = 10;
+       
+    
+    print(c);
     read(x);
-    print(x);
-    bruno = 10;
-    print(bruno);
-    if (10!=10){
-        print("bloco if");
-    } else {
-        print("bloco else");
-    }
-    while(bruno<15){
-        bruno = bruno + 1;
-        print(bruno);
-    }
-    for(x=0; x<5; x = x + 1;){
-        print(x);
+    read(y);
+    read(z);
+    read(w);
+    soma = x + y + z + w;
+    batata = (soma)/4;
+    
+    if (batata>=7
+){
+        print(c);
+    } else if(batata<4){
+        print("Reprovado");
+    } else{
+        print("exame");
     }
     
 }

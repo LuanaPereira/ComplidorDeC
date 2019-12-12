@@ -21,17 +21,22 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * @author Luana
  */
 public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
-        //@Override public T visitMain(GramaticaCParser.MainContext ctx) { return visitChildren(ctx); }
-	//@Override public T visitTypeInt(GramaticaCParser.TypeIntContext ctx) { return visitChildren(ctx); }
-	//@Override public T visitTypeFloat(GramaticaCParser.TypeFloatContext ctx) { return visitChildren(ctx); }
+        //@Override public Object visitMain(GramaticaCParser.MainContext ctx) { return visitChildren(ctx); }
+	//@Override public Object visitTypeInt(GramaticaCParser.TypeIntContext ctx) { return visitChildren(ctx); }
+	//@Override public Object visitTypeFloat(GramaticaCParser.TypeFloatContext ctx) { return visitChildren(ctx); }
 	//@Override public Object visitTypeDouble(GramaticaCParser.TypeDoubleContext ctx) { return visitChildren(ctx); }
 	//@Override public Object visitTypeChar(GramaticaCParser.TypeCharContext ctx) { return visitChildren(ctx); }
 	//@Override public Object visitTypeBool(GramaticaCParser.TypeBoolContext ctx) { return visitChildren(ctx); }
-        //@Override public T visitPrograma(GramaticaCParser.ProgramaContext ctx) { return visitChildren(ctx); }
-	//@Override public T visitIncludes(GramaticaCParser.IncludesContext ctx) { return visitChildren(ctx); }
-	//@Override public T visitGlobais(GramaticaCParser.GlobaisContext ctx) { return visitChildren(ctx); }
+        //@Override public Object visitPrograma(GramaticaCParser.ProgramaContext ctx) { return visitChildren(ctx); }
+	//@Override public Object visitIncludes(GramaticaCParser.IncludesContext ctx) { return visitChildren(ctx); }
    
-   
+    @Override
+    public Object visitGlobais(GramaticaCParser.GlobaisContext ctx) {
+
+        return 0;
+    }
+
+
 	
 
     @Override
@@ -43,14 +48,10 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
        visitFunction((GramaticaCParser.FunctionContext) ctx.function(0));
         return 0;
     }
-
     @Override
     public Object visitFunction(GramaticaCParser.FunctionContext ctx) {
         return visitChildren(ctx);
     }
-
-  
-
     @Override
     public Object visitFunc(GramaticaCParser.FuncContext ctx) {
         return visitChildren(ctx);
@@ -71,8 +72,7 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
     
     
     
-    
-    @Override
+      @Override
     public Object visitIds(GramaticaCParser.IdsContext ctx) {
         return ctx.ID().toString();
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -81,7 +81,7 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
     @Override
     public Object visitLineWrite(GramaticaCParser.LineWriteContext ctx) {
         visit(ctx.write());
-        return 0d;
+        return 0;
 
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -91,6 +91,7 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
         String val = ctx.STR().getText().replace("\"", "");
         System.out.println(val);
         return 0;
+
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -244,17 +245,16 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
         } else if (value[0].equals("bool")) {
             value[1] = leitura.nextBoolean();
         }
-
         return 0;
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    @Override 
-    public Object visitBoolExpr(GramaticaCParser.BoolExprContext ctx) { 
+
+    @Override
+    public Object visitBoolExpr(GramaticaCParser.BoolExprContext ctx) {
         Object c = (Object) visit(ctx.fact(0));
         Object d = (Object) visit(ctx.fact(1));
         Double a = Double.parseDouble(c.toString());
         Double b = Double.parseDouble(d.toString());
-        int op =  valueComp((String) visitRelop(ctx.relop()));
+        int op = valueComp((String) visitRelop(ctx.relop()));
         switch (op) {
             case GramaticaCLexer.EQ:
                 return a.equals(b);
@@ -273,30 +273,32 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
         }
         return null;
     }
+
     @Override
     public Object visitRelop(GramaticaCParser.RelopContext ctx) {
         return ctx.getText();
     }
-    
-    public int valueComp(String aux){
-        if(aux.equals("==")){
+
+    public int valueComp(String aux) {
+        if (aux.equals("==")) {
             return GramaticaCLexer.EQ;
-        } else if (aux.equals("!=")){
+        } else if (aux.equals("!=")) {
             return GramaticaCLexer.NEQ;
-        } else if (aux.equals(">")){
+        } else if (aux.equals(">")) {
             return GramaticaCLexer.GR;
-        }else if (aux.equals("<")){
+        } else if (aux.equals("<")) {
             return GramaticaCLexer.LS;
-        } else if (aux.equals(">=")){
+        } else if (aux.equals(">=")) {
             return GramaticaCLexer.GRT;
-        } else if (aux.equals("<=")){
+        } else if (aux.equals("<=")) {
             return GramaticaCLexer.LST;
-        } 
+        }
         return -1;
     }
+
     @Override
     public Object visitBlock(GramaticaCParser.BlockContext ctx) {
-        
+
         return visitChildren(ctx);
     }
 
@@ -308,7 +310,7 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
     @Override
     public Object visitIfSemElse(GramaticaCParser.IfSemElseContext ctx) {
         boolean comparacao = (boolean) visitBoolExpr(ctx.boolExpr());
-        if (comparacao){
+        if (comparacao) {
             visit(ctx.block());
         }
         return 0;
@@ -317,28 +319,30 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
     @Override
     public Object visitIfComElse(GramaticaCParser.IfComElseContext ctx) {
         boolean comparacao = (boolean) visitBoolExpr(ctx.boolExpr());
-        if (comparacao){
+        if (comparacao) {
             visit(ctx.block(0));
         } else {
             visit(ctx.block(1));
         }
         return 0;
     }
-      @Override
+
+    @Override
     public Object visitLineWhileLoop(GramaticaCParser.LineWhileLoopContext ctx) {
-      visitWhile((GramaticaCParser.WhileContext) ctx.whileLoop());  
-       return 0;
+        visitWhile((GramaticaCParser.WhileContext) ctx.whileLoop());
+        return 0;
     }
+
     @Override
     public Object visitWhile(GramaticaCParser.WhileContext ctx) {
         Boolean condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
-        
-        while(condicao){
+        while (condicao) {
             visitBlock(ctx.block());
             condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
         }
         return 0;
     }
+
     @Override
     public Object visitLineForLoop(GramaticaCParser.LineForLoopContext ctx) {
         return visitForLoop(ctx.forLoop());
@@ -348,12 +352,10 @@ public class MyGramaticaCVisitor extends GramaticaCBaseVisitor<Object> {
     public Object visitForLoop(GramaticaCParser.ForLoopContext ctx) {
         visitAtr(ctx.atr(0));
         Boolean condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
-        for (; condicao; visitAtr(ctx.atr(1))){
+        for (; condicao; visitAtr(ctx.atr(1))) {
             visitBlock(ctx.block());
             condicao = (Boolean) visitBoolExpr(ctx.boolExpr());
-        
         }
-        
         return 0;
     }
 }
