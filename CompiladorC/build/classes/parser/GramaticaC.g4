@@ -9,7 +9,7 @@ programa:   includes?
             ;
 includes:   (INCLUDE STR)+
             ;
-globais:    GLOBAIS OPC vars CLC
+globais:    GLOBAIS OPC vars+ CLC
             ;
 functions:  function+
             ;
@@ -28,8 +28,7 @@ line:         read          #lineRead
             | whileLoop     #lineWhileLoop
             | forLoop       #lineForLoop
             ;
-
-vars:       type ids EOL     #var
+vars:       type ids EOL                 #var
             ;
 func:       ID OPP ((ID SEP)* ID)? CLP EOL
             ;
